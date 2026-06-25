@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --scrollbar-thumb: 340 65% 55%; /* dark pink for light mode */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  /* ─── Beautiful themed scrollbar ─── */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar-thumb, var(--muted-foreground)) / 0.4) transparent;
+  }
+
+  /* Webkit */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-button {
+    display: none !important;
+  }
+  ::-webkit-scrollbar-button:vertical:start,
+  ::-webkit-scrollbar-button:vertical:end,
+  ::-webkit-scrollbar-button:horizontal:start,
+  ::-webkit-scrollbar-button:horizontal:end,
+  ::-webkit-scrollbar-button:vertical:decrement,
+  ::-webkit-scrollbar-button:vertical:increment,
+  ::-webkit-scrollbar-button:horizontal:decrement,
+  ::-webkit-scrollbar-button:horizontal:increment {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  ::-webkit-scrollbar-track-piece:vertical:start,
+  ::-webkit-scrollbar-track-piece:vertical:end,
+  ::-webkit-scrollbar-track-piece:horizontal:start,
+  ::-webkit-scrollbar-track-piece:horizontal:end {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--scrollbar-thumb, var(--muted-foreground)) / 0.3);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+    transition: background-color 0.2s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--scrollbar-thumb, var(--muted-foreground)) / 0.6);
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* For code blocks / overflow containers */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-button {
+    display: none !important;
+  }
+  .scrollbar-thin::-webkit-scrollbar-button:vertical:start,
+  .scrollbar-thin::-webkit-scrollbar-button:vertical:end,
+  .scrollbar-thin::-webkit-scrollbar-button:horizontal:start,
+  .scrollbar-thin::-webkit-scrollbar-button:horizontal:end,
+  .scrollbar-thin::-webkit-scrollbar-button:vertical:decrement,
+  .scrollbar-thin::-webkit-scrollbar-button:vertical:increment,
+  .scrollbar-thin::-webkit-scrollbar-button:horizontal:decrement,
+  .scrollbar-thin::-webkit-scrollbar-button:horizontal:increment {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track-piece:vertical:start,
+  .scrollbar-thin::-webkit-scrollbar-track-piece:vertical:end,
+  .scrollbar-thin::-webkit-scrollbar-track-piece:horizontal:start,
+  .scrollbar-thin::-webkit-scrollbar-track-piece:horizontal:end {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--scrollbar-thumb, var(--muted-foreground)) / 0.25);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--scrollbar-thumb, var(--muted-foreground)) / 0.5);
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
