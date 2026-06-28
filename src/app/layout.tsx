@@ -8,19 +8,22 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Nexstruct',
-  description: 'Scaffolded with Nexstruct',
+  title: {
+    template: "Sportigy | %s",
+    default: "Sportigy", // a default is required when creating a template
+  },
+  description: "Sportigy is a platform for sports fans.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
           <AppShell>
             <Providers>{children}</Providers>
           </AppShell>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
